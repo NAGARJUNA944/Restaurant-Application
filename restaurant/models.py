@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     address = db.Column(db.String(length = 50), nullable = False)
     phone_number = db.Column(db.Integer(), nullable = False)
     password_hash = db.Column(db.String(length = 60), nullable = False)
+    is_verified = db.Column(db.Boolean(), default=False, nullable=False)
 
     tables = db.relationship('Table', backref = 'reserved_user', lazy = True) # relationship with 'Table'
     items = db.relationship('Item', backref = 'ordered_user', lazy = True) # relationship with 'Item'
